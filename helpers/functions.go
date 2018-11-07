@@ -1,7 +1,6 @@
 package helpers
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -9,7 +8,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-// WsiteBrasilBlog
+// WsiteBrasilBlog perform a scraping on the website wsitebrasil
 func WsiteBrasilBlog() {
 	resp, err := http.Get("https://www.wsitebrasil.com.br/blog")
 	if err != nil {
@@ -28,26 +27,24 @@ func WsiteBrasilBlog() {
 	}
 
 	doc.Find(".box-news").Each(func(i int, s *goquery.Selection) {
-		link, ret := s.Find("a").First().Attr("href")
-		if ret {
-			fmt.Println("Link: ", strings.TrimSpace(link))
-		}
-		img, rets := s.Find("img").First().Attr("data-pagespeed-lazy-src")
-		if rets {
-			fmt.Println("Img: ", strings.TrimSpace(img))
-		}
+		link, _ := s.Find("a").First().Attr("href")
 
-		fmt.Println("Descrição: ", strings.TrimSpace(s.Find("h3").Text()))
+		img, _ := s.Find("img").First().Attr("src")
 
+		if strings.TrimSpace(img) == "/pagespeed_static/1.JiBnMqyl6S.gif" {
+			img, _ = s.Find("img").First().Attr("data-pagespeed-lazy-src")
+		}
+		txt := strings.TrimSpace(s.Find("h3").Text())
+		saveDatas(link, img, txt)
 	})
 }
 
-// UolNews
+// UolNews perform a scraping on the website uol news
 func UolNews() {
 
 }
 
-// GloboNews
+// GloboNews perform a scraping on the website g1
 func GloboNews() {
 
 }
