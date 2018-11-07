@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	go helpers.WsiteBrasilBlog()
+	helpers.WsiteBrasilBlog()
 }
