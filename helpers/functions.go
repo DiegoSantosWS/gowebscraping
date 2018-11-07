@@ -9,7 +9,8 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func Infomoney() {
+// WsiteBrasilBlog
+func WsiteBrasilBlog() {
 	resp, err := http.Get("https://www.wsitebrasil.com.br/blog")
 	if err != nil {
 		log.Fatal(err)
@@ -39,4 +40,14 @@ func Infomoney() {
 		fmt.Println("Descrição: ", strings.TrimSpace(s.Find("h3").Text()))
 
 	})
+}
+
+// UolNews
+func UolNews() {
+
+}
+
+// GloboNews
+func GloboNews() {
+
 }
