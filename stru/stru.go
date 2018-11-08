@@ -6,6 +6,7 @@ import "gopkg.in/mgo.v2/bson"
 type DataColecteds struct {
 	ID          bson.ObjectId `bson:"_id" json:"id"`
 	URL         string        `bson:"link" json:"link"`
-	Image       string        `bson:"img" json:"img"`
+	Image       string        `bson:"img,omitempty" json:"img,omitempty"`
 	Description string        `bson:"description" json:"description"`
+	Data        string        `bson:"data,omitempty" json:"data,omitempty"`
 }
