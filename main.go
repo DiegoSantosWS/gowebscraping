@@ -19,4 +19,6 @@ func init() {
 
 func main() {
 	helpers.WsiteBrasilBlog()
+	helpers.UolNews()
+	helpers.ExameNews()
 }
