@@ -66,7 +66,7 @@ func UolNews() {
 	})
 }
 
-// UolNews perform a scraping on the website uol news
+// ExameNews perform a scraping on the website exame news
 func ExameNews() {
 	resp, err := http.Get("https://exame.abril.com.br/noticias-sobre/mercado-financeiro/")
 	if err != nil {
