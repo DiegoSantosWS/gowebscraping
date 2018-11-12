@@ -21,4 +21,7 @@ func main() {
 	helpers.WsiteBrasilBlog()
 	helpers.UolNews()
 	helpers.ExameNews()
+	helpers.UolEconomy()
+	helpers.InfoMoney()
+
 }
