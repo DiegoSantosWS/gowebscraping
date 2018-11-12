@@ -23,5 +23,4 @@ func main() {
 	helpers.ExameNews()
 	helpers.UolEconomy()
 	helpers.InfoMoney()
-
 }
