@@ -28,11 +28,11 @@ func roundFunctions() {
 	helpers.InfoMoney()
 }
 func main() {
-	gocron.Every(1).Second().Do(helpers.WsiteBrasilBlog)
-	gocron.Every(1).Second().Do(helpers.UolNews)
-	gocron.Every(1).Second().Do(helpers.ExameNews)
-	gocron.Every(1).Second().Do(helpers.UolEconomy)
-	gocron.Every(1).Second().Do(helpers.InfoMoney)
+	gocron.Every(1).Day().At("10:30").Do(helpers.WsiteBrasilBlog)
+	gocron.Every(1).Day().At("10:30").Do(helpers.UolNews)
+	gocron.Every(1).Day().At("10:30").Do(helpers.ExameNews)
+	gocron.Every(1).Day().At("10:30").Do(helpers.UolEconomy)
+	gocron.Every(1).Day().At("10:30").Do(helpers.InfoMoney)
 	_, time := gocron.NextRun()
 	fmt.Println(time)
 
