@@ -26,6 +26,7 @@ func saveDatas(collection, url, img, desc, data string, reference int) bool {
 	d.Description = desc
 	d.Data = data
 	d.Reference = int64(reference)
+
 	if err := m.RegisterCollection(collection, d); err != nil {
 		log.Fatal(err)
 		return false
@@ -35,8 +36,10 @@ func saveDatas(collection, url, img, desc, data string, reference int) bool {
 
 // ExtractID extract code to reference of the news colletcting
 func ExtractID(str string) (int, error) {
-	re := regexp.MustCompile(`[0-9]`)
-	cod := fmt.Sprintf("%s", strings.Join(re.FindAllString(str, -1), "")) //Convert array to string
+	re := regexp.MustCompile(`\/(\d+)\/`)
+	dts := re.FindStringSubmatch(str)
+	cod := fmt.Sprintf("%s", dts[1]) //Convert array to string
+
 	codI, err := strconv.Atoi(cod)
 	if err != nil {
 		return 0, err
